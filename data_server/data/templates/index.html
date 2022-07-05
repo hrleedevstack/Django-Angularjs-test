@@ -1,0 +1,26 @@
+{% load static %}
+{% load render_table from django_tables2 %}
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}?version=2"></script>
+  </head>
+  <body>
+    <div ng-app="buttonTest" ng-controller="buttonCtr">
+      <label>count: {% verbatim %} {{counter}} {% endverbatim %}</label>
+      <p>
+        <button ng-click="count()">Increase</button>
+      </p>
+      <p>
+        <button ng-click="showAddPopup()"> Add Item </button>
+      </p>
+      <label>result: {% verbatim %} {{result}} {% endverbatim %}</label>
+    </div>
+    <div ng-app="buttonTest" ng-controller="tableCtr">
+      {% render_table table %}
+    </div>
+  </body>
+</html>

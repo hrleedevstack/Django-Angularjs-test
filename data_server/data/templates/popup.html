@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{% static 'js/script.js' %}?version=2"></script>
+  </head>
+  <body>
+    <div ng-app="buttonTest" ng-controller="popupCtr">
+      <p>
+        Status: 
+        <select ng-model="status">
+          <option value="ACTIVE">Active</option>
+          <option value="INACTIVE" selected>Inactive</option>
+        </select>
+      </p>
+      <p>
+        Business Category: 
+        <input type="text" ng-model="business_category">
+      </p>
+      <p>
+        Company: 
+        <input type="text" ng-model="company">
+      </p>
+      <button ng-click="submit(data={'status': status, 'business_category': business_category, 'company': company})">submit</button>
+      <button ng-click="dismiss()">dismiss</button>
+    </div>
+  </body>
+</html>
