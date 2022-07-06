@@ -23,6 +23,8 @@ spec:
             name: http
 #           image: "django-test:0.1"
           image: "python:latest"
+          command: [ "/bin/bash", "-c", "--" ]
+          args: [ "while true; do sleep 30; done;" ]
 ---
 apiVersion: v1
 kind: Service
