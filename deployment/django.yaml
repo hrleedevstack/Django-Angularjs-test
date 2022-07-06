@@ -22,7 +22,7 @@ spec:
           - containerPort: 5123
             name: http
 #           image: "django-test:0.1"
-            image: "python:latest"
+          image: "python:latest"
 ---
 apiVersion: v1
 kind: Service
