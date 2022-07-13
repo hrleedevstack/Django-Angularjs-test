@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
+    }
+
+  }
   stages {
     stage('Build Container') {
       agent {
@@ -9,7 +14,7 @@ pipeline {
 
       }
       steps {
-        container(name: 'build')
+        container(name: 'build', shell: 'docker build . -t django-test:0.1 --network=host')
       }
     }
 
