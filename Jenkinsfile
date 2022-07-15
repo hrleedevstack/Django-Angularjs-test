@@ -1,18 +1,11 @@
 pipeline {
   agent {
-    node {
-      label 'docker'
-    }
+    dockerfile true
   }
   stages {
-    stage ('checlout code') {
+    stage('test') {
       steps {
-        checkout scm
-      }
-    }
-    stage ('verify tools'){
-      steps {
-        sh "docker -v"
+        sh 'pwn'
       }
     }
   }
