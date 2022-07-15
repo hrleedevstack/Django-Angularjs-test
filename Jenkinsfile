@@ -1,8 +1,4 @@
 pipeline {
-  agent {
-    dockerfile true
-
-  }
   stages {
     stage ('checlout code') {
       steps {
