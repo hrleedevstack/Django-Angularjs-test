@@ -1,9 +1,17 @@
 pipeline {
-  agent any
+  agent {
+    dockerfile true
+
+  }
   stages {
-    stage('Example') {
+    stage ('checlout code') {
       steps {
-        echo 'Hello, World!'
+        checkout scm
+      }
+    }
+    stage ('verify tools'){
+      steps {
+        sh "docker -v"
       }
     }
   }
