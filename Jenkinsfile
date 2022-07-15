@@ -1,22 +1,31 @@
+// pipeline {
+//   agent {
+//     dockerfile {
+//       filename 'Dockerfile'
+//     }
+
+//   }
+//   stages {
+//     stage('Build Container') {
+//       agent {
+//         dockerfile {
+//           filename 'Dockerfile'
+//           additionalBuildArgs '-t django-test:0.11 --network=host'
+//         }
+
+//       }
+//     }
+
+//   }
+// }
+
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
-
-  }
+  agent any
   stages {
-    stage('Build Container') {
-      agent {
-        dockerfile {
-          filename 'Dockerfile'
-        }
-
-      }
+    stage('Example') {
       steps {
-        container(name: 'build', shell: 'docker build . -t django-test:0.1 --network=host')
+        echo 'Hello, World!'
       }
     }
-
   }
 }
