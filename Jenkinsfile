@@ -1,11 +1,12 @@
 pipeline {
   agent {
-    dockerfile true
+    none
   }
   stages {
-    stage('test') {
+    stage('build') {
+      agent any
       steps {
-        sh 'pwn'
+        sh 'docker build . -t django-test:0.1 --network=host'
       }
     }
   }
