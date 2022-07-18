@@ -20,8 +20,11 @@ pipeline {
     stage('container push') {
       agent any
       steps {
-        sh 'docker login -u admin -p devstack'
-        sh 'docker push 10.233.61.130:5000/django-test:0.13'
+        script {
+          docker.withRegistry('http://10.233.61.130:5000', 'nexus') {
+            docker.image('10.233.61.130:5000/django-test:0.13').push()
+          }
+        }
       }
     }
   }
