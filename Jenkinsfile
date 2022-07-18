@@ -21,7 +21,7 @@ pipeline {
       agent any
       steps {
         script {
-          docker.withRegistry('http://10.233.61.130:5000', 'nexus') {
+          docker.withRegistry('10.233.61.130:5000', 'nexus') {
             docker.image('10.233.61.130:5000/django-test:0.13').push()
           }
         }
