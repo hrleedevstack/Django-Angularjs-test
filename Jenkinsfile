@@ -2,15 +2,17 @@ pipeline {
   agent none
   stages {
     stage('build') {
-      agent any
-      steps {
-        sh 'docker build . -t 10.233.61.130:5000/django-test:0.11 --network=host'
+      agent{
+        dockerfile {
+          additionalBuildArgs '-t 10.233.61.130:5000/django-test:0.12 --network=host'
+        }
       }
     }
     stage('push') {
       agent any
       steps {
-        sh 'docker push 10.233.61.130:5000/django-test:0.11'
+        sh 'docker login -u admin -p devstack'
+        sh 'docker push 10.233.61.130:5000/django-test:0.12'
       }
     }
   }
