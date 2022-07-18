@@ -10,7 +10,7 @@ pipeline {
     stage('push') {
       agent any
       steps {
-        sh 'docker push 10.233.61.130:5000/django-test:0.1'
+        sh 'docker push 10.233.61.130:5000/django-test:0.11'
       }
     }
   }
