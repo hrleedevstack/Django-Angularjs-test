@@ -13,6 +13,7 @@ pipeline {
           additionalBuildArgs '-t 10.233.61.130:5000/django-test:0.12 --network=host'
         }
       }
+      steps {}
     }
     stage('container push') {
       agent any
