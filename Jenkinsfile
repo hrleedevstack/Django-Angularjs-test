@@ -2,6 +2,7 @@ pipeline {
   agent any
   stages {
     stage('checkout') {
+      agent any
       steps {
         checkout scm
       }
@@ -13,7 +14,7 @@ pipeline {
         }
       }
     }
-    stage('contaienr push') {
+    stage('container push') {
       agent any
       steps {
         sh 'docker login -u admin -p devstack'
