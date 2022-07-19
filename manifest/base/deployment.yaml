@@ -21,4 +21,4 @@ spec:
           ports:
           - containerPort: 5123
             name: http
-          image: "django-test:0.1"
+          image: "10.233.61.130:5000/django-test:0.11"
