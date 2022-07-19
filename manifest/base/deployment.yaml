@@ -21,7 +21,4 @@ spec:
           ports:
           - containerPort: 5123
             name: http
-#           image: "django-test:0.1"
-          image: "python:latest"
-          command: [ "/bin/bash", "-c", "--" ]
-          args: [ "while true; do sleep 30; done;" ]
+          image: "django-test:0.1"
